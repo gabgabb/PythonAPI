@@ -9,8 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 def CommunauteView(request):
 
     if request.method == 'GET':
-        items = Communaute.objects.all()
-        serializer = CommunauteSerializer(items, many=True)
+        commu = Communaute.objects.all()
+        serializer = CommunauteSerializer(commu, many=False)
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
