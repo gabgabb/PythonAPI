@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from ReadItAPI.views import CommunauteView
+from django.urls import path, include
+from pythonapi.views import CommunautesView, CommunauteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('communaute/', CommunauteView)
+    path('communautes/', CommunautesView),
+    path('communaute/<int:nm>', CommunauteView),
 ]
