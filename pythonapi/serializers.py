@@ -4,4 +4,4 @@ from .models import CommunauteModel
 class CommunauteSerializers(serializers.ModelSerializer):
     class Meta:
         model = CommunauteModel
-        fields = ['id', 'name','dateCreation', 'type']
+        fields = ['id','name','membre','dateCreation','type']

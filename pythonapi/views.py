@@ -23,9 +23,9 @@ def CommunautesView(request):
 
 
 @csrf_exempt
-def CommunauteView(request, nm):
+def CommunauteView(request, nb):
     try:
-        communaute = CommunauteModel.objects.get(id=nm)
+        communaute = CommunauteModel.objects.get(id=nb)
     except CommunauteModel.DoesNotExist:
         raise Http404('Not found')
 
