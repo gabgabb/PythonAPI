@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0.27
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: pythonapi
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql
+    restart: always
+
+  web:
+    build: .
+    command: python manage.py runserver
+    volumes:
+      - .:/PythonAPI
+    ports:
+      - 8000:8000
+    depends_on:
+      - mysql
+    restart: always

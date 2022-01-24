@@ -4,6 +4,10 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import CommunauteModel
 from .serializers import CommunauteSerializers
+import unittest
+
+def helloWorld():
+    print("badar")
 
 @csrf_exempt
 def CommunautesView(request):
@@ -45,3 +49,7 @@ def CommunauteView(request, nb):
     if request.method == "DELETE":
         communaute.delete()
         return HttpResponse(status=204)
+
+
+
+
